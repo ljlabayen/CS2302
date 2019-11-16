@@ -14,14 +14,25 @@ first search and Depth first search.
 """
 
 import matplotlib.pyplot as plt
-import numpy as np
-#import graph_AL as graph
-#import graph_AM as graph # Replace line 3 by this one to demonstrate adjacy maxtrix implementation
-import graph_EL as graph # Replace line 3 by this one to demonstrate edge list implementation
+import graph_AL as AL_test
+import graph_AM as AM_test # Replace line 3 by this one to demonstrate adjacy maxtrix implementation
+import graph_EL as EL_test # Replace line 3 by this one to demonstrate edge list implementation
 
-def tests():  
+def tests(choice):  
+    
     plt.close("all")   
-    g = graph.Graph(6)
+    
+    if choice == 1:
+        impl=AL_test
+        print('\nYou selected Adjacency List\n')
+    if choice == 2:
+        impl=AM_test
+        print('\nYou selected Adjacency Matrix\n')
+    if choice == 3:
+        impl=EL_test
+        print('\nYou selected Edge List\n')
+        
+    g = impl.Graph(6)
     g.insert_edge(0,1)
     g.insert_edge(0,2)
     g.insert_edge(1,2)
@@ -34,7 +45,7 @@ def tests():
     g.draw()
     
     
-    g = graph.Graph(6,directed = True)
+    g = impl.Graph(6,directed = True)
     g.insert_edge(0,1)
     g.insert_edge(0,2)
     g.insert_edge(1,2)
@@ -47,7 +58,7 @@ def tests():
     g.display()
     g.draw()
     
-    g = graph.Graph(6,weighted=True)
+    g = impl.Graph(6,weighted=True)
     g.insert_edge(0,1,4)
     g.insert_edge(0,2,3)
     g.insert_edge(1,2,2)
@@ -60,7 +71,7 @@ def tests():
     g.display()
     g.draw()
     
-    g = graph.Graph(6,weighted=True,directed = True)
+    g = impl.Graph(6,weighted=True,directed = True)
     g.insert_edge(0,1,4)
     g.insert_edge(0,2,3)
     g.insert_edge(1,2,2)
@@ -73,6 +84,19 @@ def tests():
     g.display()
     g.draw()
     
+    print('\nas_AL')
     g1=g.as_AL()
     g1.draw()
     g1.display()
+    
+    print('\nas_AM')
+    g2=g.as_AM()
+    g2.draw()
+    g2.display()
+    
+    print('\nas_EL')
+    g3=g.as_EL()
+    g3.draw()
+    g3.display()
+    
+    
