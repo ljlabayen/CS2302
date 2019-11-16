@@ -19,32 +19,29 @@ import graph_EL as EL
 import test_graphs as test
 import time
 
+print('1. Adjacency List')
+print('2. Adjacency Matrix')
+print('3. Edge List')
 
-print('1. Run test_graphs')
+choice=int(input('Select implementation: '))
+
+
+print('\n1. Run test_graphs')
 print('2. Fox, Chicken, Grain, Farmer')
-choice=int(input('Select choice: '))
 
-if choice==1:
-    test.tests()
+choice2=int(input('Select choice: '))
+
+if choice2==1:
     
-if choice==2:
+    test.tests(choice)
     
-    print('\n1. Adjacency List')
-    print('2. Adjacency Matrix')
-    print('3. Edge List')
+if choice2==2:
     
-    choice2=int(input('Select implementation: '))
-    
-    print('\n1. Breadth First Search')
-    print('2. Depth First Search')
-    
-    choice3=int(input('Select search function: '))
-    
-    if choice2==1:
+    if choice==1:
         g=AL.Graph(16)
-    if choice2==2:
+    if choice==2:
         g=AM.Graph(16)
-    if choice2==3:
+    if choice==3:
         g=EL.Graph(16)
     
     g.insert_edge(0,5)
@@ -57,6 +54,11 @@ if choice==2:
     g.insert_edge(10,15)
     
     timer=0    
+    
+    print('\n1. Breadth First Search')
+    print('2. Depth First Search')
+    
+    choice3=int(input('Select search function: '))
     
     if choice3==1:
         start = time.perf_counter()
